@@ -6,22 +6,42 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "scheme": "app",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "Allow $(PRODUCT_NAME) to access your camera"
+      },
+      "bundleIdentifier": "com.nguyennhat156203.mobile"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": [
+        "android.permission.CAMERA"
+      ],
+      "package": "com.nguyennhat156203.mobile"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      "expo-localization",
+      [
+        "react-native-vision-camera",
+        {
+          "enableCodeScanner": true
+        }
+      ]
+    ]
   }
 }
