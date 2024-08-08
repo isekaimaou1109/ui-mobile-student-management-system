@@ -11,34 +11,28 @@ export default function BaseLayout() {
   const [transport, setTransport] = React.useState('N/A');
 
   React.useEffect(() => {
-    if (socket.connected) {
-      console.log('haha')
-      onConnect();
-    } else {
-      console.log('b1')
-    }
-
     function onConnect() {
-      console.log('connected')
+      console.log('connected:', socket.id)
       setConnectionState(true);
       setTransport(socket.io.engine.transport.name);
-
+  
       socket.io.engine.on('upgrade', (transport) => {
         setTransport(transport.name);
       });
     }
-
+  
     function onDisconnect() {
       setConnectionState(false);
       setTransport('N/A');
       console.log('disconnect')
     }
 
+    if (socket.connected) {
+      onConnect();
+    }
+
     socket.on('connect', onConnect);
     socket.on('disconnect', onDisconnect);
-    socket.on('get_me', (profile) => {
-      console.log('profile:', profile)
-    })
 
     return () => {
       socket.off('connect', onConnect);

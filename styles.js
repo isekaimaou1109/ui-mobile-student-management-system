@@ -5,6 +5,11 @@ export const globalStyle = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center', 
     alignItems: 'center'
+  },
+  flex_end: {
+    display: 'flex',
+    alignItems: 'flex-end',
+    justifyContent: 'flex-end',
   }
 })
 
@@ -50,13 +55,22 @@ export const cameraStyle = StyleSheet.create({
 
 export const loginFormStyle = StyleSheet.create({
   wrapper: {
-    ...globalStyle.flex_center,
+    display: 'flex',
+    alignItems: 'center',
     flex: 1,
     paddingHorizontal: 24,
     paddingVertical: 12,
-    marginTop: 112,
   },
   title: {
     fontWeight: "bold",
+  },
+});
+
+export const utilStyle = StyleSheet.create({
+  container: {
+    ...globalStyle.flex_end,
+    flexDirection: 'row',
+    marginTop: 24,
+    marginRight: 24
   },
 });

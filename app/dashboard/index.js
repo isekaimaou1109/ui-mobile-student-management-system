@@ -5,7 +5,7 @@ import {
   Camera,
 } from "expo-camera";
 import { Text, View, TouchableOpacity, Button, Dimensions } from "react-native";
-import { Header, Icon, Tab, TabView } from "@rneui/themed";
+import { Icon } from "@rneui/themed";
 
 import { headerStyle, cameraStyle } from "../../styles";
 import { I18nContext } from '../../i18n'
